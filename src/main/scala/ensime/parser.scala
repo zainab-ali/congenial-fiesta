@@ -39,7 +39,7 @@ final class ELispParser[F[_[_]]](implicit T: Corecursive.Aux[F[SExp], SExp]) ext
   val char: Parser[F[SExp]] = P("?" ~ normalChar.!).map(c => T.embed(SExp.Char(c(0))))
 
   //TODO: alleycats
-  val list: Parser[F[SExp]] = P(lb ~ (list | t | char | nil).rep ~ rb).map(sexp => sequence(sexp.toList))
+  val list: Parser[F[SExp]] = P(lb ~ ((list | t | char | nil) ~ whitespace.rep).rep ~ rb).map(sexp => sequence(sexp.toList.reverse))
 
   val sexp: Parser[F[SExp]] = list | nil | t | char
 

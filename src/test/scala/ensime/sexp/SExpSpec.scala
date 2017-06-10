@@ -10,7 +10,15 @@ class SExpSpec extends FlatSpec with SExpSyntax with Matchers {
     elisp"nil".show shouldBe "nil"
   }
 
-  it should "show chars" in {
+  it should "show a char" in {
     elisp"?c".show shouldBe "?c"
+  }
+
+  it should "show a list" in {
+    elisp"(?c nil)".show shouldBe "(?c nil)"
+  }
+
+  it should "show a nested list" in {
+    elisp"(?a (t ?b))".show shouldBe "(?a (t ?b))"
   }
 }
