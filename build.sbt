@@ -37,6 +37,8 @@ lazy val commonSettings = Seq(
     "com.slamdata" %% "matryoshka-core" % "0.20.0",
     "com.chuusai" %% "shapeless" % "2.3.2",
     "com.lihaoyi" %% "fastparse" % "0.4.3",
+    "org.ow2.asm" % "asm-commons" % "5.2",
+    "org.ow2.asm" % "asm-util" % "5.2",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test",
     "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
   )
